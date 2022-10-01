@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     String user_val = user.getText().toString();
 
         Toast.makeText(getApplicationContext(), "Signed In: " + user_val, Toast.LENGTH_LONG).show();
-        Intent i = new Intent(MainActivity.this,MainActivity1.class);
+        Intent i = new Intent(MainActivity.this,MainActivity2.class);
         startActivity(i);
     }
 }
