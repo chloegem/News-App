@@ -26,6 +26,7 @@ public class MainActivity2 extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         if(item.getItemId() == R.id.add);
         Intent i = new Intent(MainActivity2.this, MainActivity3.class);
+        startActivity(i);
         return super.onOptionsItemSelected(item);
     }
 }
