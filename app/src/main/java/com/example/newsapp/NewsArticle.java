@@ -1,3 +1,5 @@
+package com.example.newsapp;
+
 public class NewsArticle {
 
     String title, author, publisher, location, details;
