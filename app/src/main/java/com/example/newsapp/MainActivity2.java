@@ -1,9 +1,13 @@
 package com.example.newsapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -14,6 +18,14 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
-        return super.onCreateOptionsMenu(menu);
+        MenuInflater inflator = getMenuInflater();
+        inflator.inflate(R.menu.news_menu,menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        if(item.getItemId() == R.id.add);
+        Intent i = new Intent(MainActivity2.this, MainActivity3.class);
+        return super.onOptionsItemSelected(item);
     }
 }
