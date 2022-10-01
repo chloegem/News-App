@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="355dp"
         android:layout_height="72dp"
-        android:hint="Add News Article"
+        android:hint="Add News Article Title:"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
