@@ -1,14 +1,14 @@
 package com.example.newsapp;
 
 public class NewsArticle {
-
+    int id;
     String title, author, publisher, location, details;
 
     NewsArticle(){
-
     }
 
-    public NewsArticle(String title, String author, String publisher, String location, String details) {
+    public NewsArticle(int id, String title, String author, String publisher, String location, String details) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.publisher = publisher;
@@ -16,10 +16,20 @@ public class NewsArticle {
         this.details = details;
     }
 
-    public NewsArticle(String title, String author, String location) {
+    public NewsArticle(String title, String author, String publisher, String location, String details){
         this.title = title;
         this.author = author;
+        this.publisher = publisher;
         this.location = location;
+        this.details = details;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {

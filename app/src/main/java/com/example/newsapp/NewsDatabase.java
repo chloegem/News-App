@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 
 public class NewsDatabase extends SQLiteOpenHelper {
@@ -32,7 +34,7 @@ public class NewsDatabase extends SQLiteOpenHelper {
                 COLUMN_AUTHOR + "TEXT," +
                 COLUMN_PUBLISHER + "TEXT," +
                 COLUMN_LOCATION + "TEXT," +
-                COLUMN_DETAILS + "TEXT," + ")";
+                COLUMN_DETAILS + "TEXT" + ")";
 
         sqLiteDatabase.execSQL(query);
     }
@@ -53,5 +55,9 @@ public class NewsDatabase extends SQLiteOpenHelper {
         cv.put(COLUMN_PUBLISHER, newsArticle.getPublisher());
         cv.put(COLUMN_LOCATION, newsArticle.getLocation());
         cv.put(COLUMN_DETAILS, newsArticle.getDetails());
+
+        long ID = db.insert(DB_TABLE,null, cv);
+        Log.d("Inserted","id -->" + ID);
+        return ID;
     }
 }
