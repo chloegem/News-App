@@ -13,18 +13,25 @@ public class NewsDatabase extends SQLiteOpenHelper {
 
     public static String COLUMN_TITLE = "NewsTitle";
     public static String COLUMN_AUTHOR = "NewsAuthor";
-    public static String COLUMN_PUBLISHER;
-    public static String COLUMN_LOCATION;
-    public static String COLUMN_DETAILS;
+    public static String COLUMN_PUBLISHER = "NewsPublisher";
+    public static String COLUMN_LOCATION = "NewsLocation";
+    public static String COLUMN_DETAILS = "NewsDetails";
 
 
     public NewsDatabase(@Nullable Context context) {
-        super(context, name, factory, version);
+        super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        String query = "CREATE TABLE" + DB_TABLE +
+                "(" + COLUMN_TITLE + "TEXT," +
+                COLUMN_AUTHOR + "TEXT," +
+                COLUMN_PUBLISHER + "TEXT," +
+                COLUMN_LOCATION + "TEXT," +
+                COLUMN_DETAILS + "TEXT," + ")";
 
+        sqLiteDatabase.execSQL(query);
     }
 
     @Override
