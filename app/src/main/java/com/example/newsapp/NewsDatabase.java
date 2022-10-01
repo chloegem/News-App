@@ -36,6 +36,9 @@ public class NewsDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        if(i>=i1)
+            return;
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + DB_NAME);
+        onCreate(sqLiteDatabase);
     }
 }
