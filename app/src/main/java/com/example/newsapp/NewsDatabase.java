@@ -2,11 +2,15 @@ package com.example.newsapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewsDatabase extends SQLiteOpenHelper {
 
@@ -59,5 +63,30 @@ public class NewsDatabase extends SQLiteOpenHelper {
         long ID = db.insert(DB_TABLE,null, cv);
         Log.d("Inserted","id -->" + ID);
         return ID;
+    }
+
+    public List<NewsArticle> getNewsArticle(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<NewsArticle> allNews = new ArrayList<>();
+
+        String queryStatement = "SELECT * FROM " + DB_TABLE;
+        Cursor cursor = db.rawQuery(queryStatement,null);
+
+        if(cursor.moveToFirst()){
+            do{
+
+                NewsArticle newsArticle = new NewsArticle();
+                newsArticle.setId(cursor.getInt(0));
+                newsArticle.setTitle(cursor.getString(1));
+                newsArticle.setAuthor(cursor.getString(2));
+                newsArticle.setPublisher(cursor.getString(3));
+                newsArticle.setLocation(cursor.getString(4));
+                newsArticle.setDetails(cursor.getString(5));
+
+                allNews.add(newsArticle);
+            }while(cursor.moveToNext());
+        }
+        return allNews;
+
     }
 }
