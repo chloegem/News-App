@@ -20,7 +20,7 @@ public class MainActivity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        getSupportActionBar().setTitle("Add New News Article");
+        getSupportActionBar().setTitle("Add News Article");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         news_title = findViewById(R.id.title);
@@ -37,10 +37,9 @@ public class MainActivity3 extends AppCompatActivity {
                 NewsDatabase db = new NewsDatabase(MainActivity3.this);
                 db.addNews(newsArticle);
 
-                Intent intent = new Intent(MainActivity3.this, MainPage.class);
-                startActivity(intent);
-
-                Toast.makeText(getApplicationContext(),"News Article Saved!",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"News Article Saved!",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity3.this, MainPage.class);
+                startActivity(i);
             }
         });
 

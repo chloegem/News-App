@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     EditText user = (EditText) findViewById(R.id.user);
     String user_val = user.getText().toString();
 
-        Toast.makeText(getApplicationContext(), "Signed In: " + user_val, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Welcome " + user_val, Toast.LENGTH_LONG).show();
         Intent i = new Intent(MainActivity.this,MainActivity2.class);
         startActivity(i);
     }
