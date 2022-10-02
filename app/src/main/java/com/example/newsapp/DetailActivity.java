@@ -1,9 +1,13 @@
 package com.example.newsapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,12 +37,37 @@ public class DetailActivity extends AppCompatActivity {
         NewsArticle newsArticle = db.getNews(id);
 
         title.setText(newsArticle.getTitle());
-        author.setText(newsArticle.getAuthor());
+        author.setText("By: " + newsArticle.getAuthor());
         publisher.setText(newsArticle.getPublisher());
         location.setText(newsArticle.getLocation());
         details.setText(newsArticle.getDetails());
-        Toast.makeText(getApplicationContext(),"id"+newsArticle.getId(), Toast.LENGTH_SHORT).show();
-
-
+        Toast.makeText(getApplicationContext(),"Article Selected", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.news_delete,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        if(item.getItemId() == android.R.id.home){
+            finish();
+            return true;
+        }
+        if(item.getItemId() == R.id.delete){
+            NewsDatabase db = new NewsDatabase(this);
+            Intent i = getIntent();
+            id = i.getIntExtra("ID",0);
+            db.deleteNote(id);
+            Toast.makeText(getApplicationContext(),"Article Deleted!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(DetailActivity.this,MainActivity2.class);
+            startActivity(intent);
+        }
+    return super.onOptionsItemSelected(item);
+    }
+
+
 }
