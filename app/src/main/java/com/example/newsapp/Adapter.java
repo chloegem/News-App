@@ -26,13 +26,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.news_view,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
         String title = newsArticles.get(position).getTitle();
         String author = newsArticles.get(position).getAuthor();
 
@@ -49,15 +49,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         TextView nTitle, nAuthor;
 
-        public ViewHolder(@NonNull View view){
-            super(view);
-            nTitle = view.findViewById(R.id.nTitle);
-            nAuthor = view.findViewById(R.id.nAuthor);
+        public ViewHolder(@NonNull View itemView){
+            super(itemView);
+            nTitle = itemView.findViewById(R.id.nTitle);
+            nAuthor = itemView.findViewById(R.id.nAuthor);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    Toast.makeText(itemView.getContext(), "Item Clicked", Toast.LENGTH_SHORT).show();
+
                     Intent i = new Intent(view.getContext(), DetailActivity.class);
                     i.putExtra("ID", newsArticles.get(getAdapterPosition()).getId());
                     view.getContext().startActivity(i);
