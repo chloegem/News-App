@@ -7,84 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity3">
 
-    <TextView
-        android:id="@+id/details"
-        android:layout_width="355dp"
-        android:layout_height="177dp"
-        android:hint="News Article Details..."
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="355dp"
-        android:layout_height="72dp"
-        android:text="Add News Article Title"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="352dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Location:"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.32999998" />
 
-    <TextView
-        android:id="@+id/author"
-        android:layout_width="354dp"
-        android:layout_height="22dp"
-        android:hint="Author:"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.251" />
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="354dp"
-        android:layout_height="22dp"
-        android:hint="Title:"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.194" />
-
-    <TextView
+    <EditText
         android:id="@+id/publisher"
         android:layout_width="354dp"
-        android:layout_height="22dp"
+        android:layout_height="47dp"
+        android:ems="10"
         android:hint="Published At:"
-        android:textSize="20sp"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308" />
-
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="354dp"
-        android:layout_height="22dp"
-        android:hint="Location:"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintVertical_bias="0.26" />
 
     <Button
         android:id="@+id/button_add"
@@ -96,6 +43,47 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764" />
+        app:layout_constraintVertical_bias="0.764"
+        tools:ignore="OnClick" />
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="354dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:hint="Title:"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.121" />
+
+    <EditText
+        android:id="@+id/author"
+        android:layout_width="354dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:hint="Author:"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <EditText
+        android:id="@+id/details"
+        android:layout_width="354dp"
+        android:layout_height="59dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Add News Details..."
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
