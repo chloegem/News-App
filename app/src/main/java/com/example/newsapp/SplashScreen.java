@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+//SPLASH SCREEN - PART 1
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -17,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
 
                 try{
-                sleep(3000);
+                sleep(2000);
                 }catch (Exception e) {
                     e.printStackTrace();
                 }finally {

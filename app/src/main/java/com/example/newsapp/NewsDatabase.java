@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+//CREATE SQL DATABASE
 public class NewsDatabase extends SQLiteOpenHelper {
 
     public static final int DB_VERSION = 2;
@@ -33,12 +34,12 @@ public class NewsDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String query = "CREATE TABLE " + DB_TABLE +
-                "(" + COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_TITLE + "TEXT," +
-                COLUMN_AUTHOR + "TEXT," +
-                COLUMN_PUBLISHER + "TEXT," +
-                COLUMN_LOCATION + "TEXT," +
-                COLUMN_DETAILS + "TEXT" + ")";
+                "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_TITLE + " TEXT, " +
+                COLUMN_AUTHOR + " TEXT, " +
+                COLUMN_PUBLISHER + " TEXT, " +
+                COLUMN_LOCATION + " TEXT, " +
+                COLUMN_DETAILS + " TEXT" + ")";
 
         sqLiteDatabase.execSQL(query);
     }
@@ -74,7 +75,6 @@ public class NewsDatabase extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()){
             do{
-
                 NewsArticle newsArticle = new NewsArticle();
                 newsArticle.setId(cursor.getInt(0));
                 newsArticle.setTitle(cursor.getString(1));
@@ -87,6 +87,25 @@ public class NewsDatabase extends SQLiteOpenHelper {
             }while(cursor.moveToNext());
         }
         return allNews;
+    }
 
+    public NewsArticle getNews(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] query = new String[]{COLUMN_ID,COLUMN_TITLE,COLUMN_AUTHOR,COLUMN_PUBLISHER,COLUMN_LOCATION,COLUMN_DETAILS};
+        Cursor cursor = db.query(DB_TABLE, query, COLUMN_ID+"=?",new String[]{String.valueOf(id)},null,null,null,null);
+        if(cursor != null)
+            cursor.moveToFirst();
+
+        return new NewsArticle(
+                Integer.parseInt(cursor.getString(0)),
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4),
+                cursor.getString(5));
+    }
+
+    void deleteNote(int id){
+        
     }
 }

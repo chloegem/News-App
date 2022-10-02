@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+//TO ADD A NEWS ARTICLE - PART 4
 public class MainActivity3 extends AppCompatActivity {
 
     EditText news_title, news_author, news_publisher, news_location, news_details;
@@ -38,7 +38,7 @@ public class MainActivity3 extends AppCompatActivity {
                 db.addNews(newsArticle);
 
                 Toast.makeText(getApplicationContext(),"News Article Saved!",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MainActivity3.this, MainPage.class);
+                Intent i = new Intent(MainActivity3.this, MainActivity2.class); //create new activity
                 startActivity(i);
             }
         });

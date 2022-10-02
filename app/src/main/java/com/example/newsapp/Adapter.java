@@ -6,12 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 import java.util.List;
 
+
+//CREATE ADAPTER FOR NEWS
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     LayoutInflater inflater;
@@ -35,12 +36,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         String author = newsArticles.get(position).getAuthor();
 
         holder.nTitle.setText(title);
-        holder.nAuthor.setText(author);
+        holder.nAuthor.setText("By: " + author);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return newsArticles.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -50,7 +51,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         public ViewHolder(@NonNull View view){
             super(view);
             nTitle = view.findViewById(R.id.nTitle);
-            nAuthor = view.findViewById(R.id.nTitle);
+            nAuthor = view.findViewById(R.id.nAuthor);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

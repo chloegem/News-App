@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//LOGIN AFTER SPLASH SCREEN - PART 2
 public class MainActivity extends AppCompatActivity {
 
     @Override

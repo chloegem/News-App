@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import java.util.List;
 
+//MAIN PAGE - PART 3
 public class MainActivity2 extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -26,7 +27,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerViewAdd);
         NewsDatabase newsDatabase = new NewsDatabase(this);
-        newsArticleList = newsDatabase.getNewsArticle(); ////////////CHECK WHERE GET NEWS IS FROM
+        newsArticleList = newsDatabase.getNewsArticle();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setReverseLayout(true);
@@ -37,12 +38,14 @@ public class MainActivity2 extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflator = getMenuInflater();
-        inflator.inflate(R.menu.news_menu,menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.news_menu,menu);
         return true;
     }
 
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         if(item.getItemId() == R.id.add);
         Intent i = new Intent(MainActivity2.this, MainActivity3.class);

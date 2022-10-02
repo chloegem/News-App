@@ -10,8 +10,9 @@
         <entry key="app/src/main/res/layout/activity_main3.xml" value="0.2767425537109375" />
         <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.22454223632812503" />
+        <entry key="app/src/main/res/layout/activity_to_add.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.140625" />
-        <entry key="app/src/main/res/layout/news_view.xml" value="0.33838195800781246" />
+        <entry key="app/src/main/res/layout/news_view.xml" value="0.2761904761904762" />
         <entry key="app/src/main/res/menu/news_menu.xml" value="0.24375" />
       </map>
     </option>

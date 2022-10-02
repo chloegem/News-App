@@ -1,5 +1,7 @@
 package com.example.newsapp;
 
+
+//CREATE OBJECT NEWS ARTICLE
 public class NewsArticle {
     int id;
     String title, author, publisher, location, details;
