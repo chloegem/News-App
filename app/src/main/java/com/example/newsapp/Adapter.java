@@ -5,11 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
-
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
@@ -18,18 +16,24 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     List<NewsArticle> newsArticles;
 
     Adapter(Context context, List<NewsArticle> newsArticles){
-
+        this.inflater = LayoutInflater.from(context);
+        this.newsArticles = newsArticles;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = inflater.inflate(R.layout.news_view,parent,false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        String title = newsArticles.get(position).getTitle();
+        String author = newsArticles.get(position).getAuthor();
 
+        holder.nTitle.setText(title);
+        holder.nAuthor.setText(author);
     }
 
     @Override
