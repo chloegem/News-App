@@ -3,7 +3,9 @@ package com.example.newsapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 
 public class DetailActivity extends AppCompatActivity {
 
+    SharedPreferences share;
+    SharedPreferences.Editor edit;
     TextView title, author, publisher, location, details;
     int id;
 
@@ -67,6 +71,14 @@ public class DetailActivity extends AppCompatActivity {
             startActivity(intent);
         }
     return super.onOptionsItemSelected(item);
+    }
+
+    public void sharedPref()
+    {
+        share = this.getSharedPreferences("com.lau.shared", Context.MODE_PRIVATE);
+        edit = share.edit();
+        name = share.getString("token_a", "");
+        user.setText("Welcome " + name);
     }
 
 
