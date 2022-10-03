@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,11 +16,15 @@ import android.view.MenuItem;
 import java.util.List;
 
 //MAIN PAGE - PART 3
-public class MainActivity2 extends AppCompatActivity {
+public class MainPage extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Adapter adapter;
     List<NewsArticle> newsArticleList;
+
+    SharedPreferences shared;
+    SharedPreferences.Editor myEdit;
+    String user_val;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +54,15 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         if(item.getItemId() == R.id.add);
-        Intent i = new Intent(MainActivity2.this, MainActivity3.class);
+        Intent i = new Intent(MainPage.this, addNews.class);
         startActivity(i);
         return super.onOptionsItemSelected(item);
+    }
+
+    public void sharedPref()
+    {
+        shared = this.getSharedPreferences("com.lau.shared", Context.MODE_PRIVATE);
+        myEdit = shared.edit();
+        user_val = shared.getString("token_a", "");
     }
 }

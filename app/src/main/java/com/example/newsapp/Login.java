@@ -11,12 +11,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 //LOGIN AFTER SPLASH SCREEN - PART 2
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
+
+    SharedPreferences shared;
+    SharedPreferences.Editor myEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        shared = this.getSharedPreferences("com.lau.shared", Context.MODE_PRIVATE);
+        myEdit = shared.edit();
     }
 
     public void onClick(View v){
@@ -25,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
     String user_val = user.getText().toString();
 
         Toast.makeText(getApplicationContext(), "Welcome " + user_val, Toast.LENGTH_LONG).show();
-        Intent i = new Intent(MainActivity.this,MainActivity2.class);
+        Intent i = new Intent(Login.this, MainPage.class);
         startActivity(i);
     }
+
+
 }

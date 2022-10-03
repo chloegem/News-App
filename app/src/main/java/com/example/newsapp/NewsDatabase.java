@@ -105,7 +105,7 @@ public class NewsDatabase extends SQLiteOpenHelper {
                 cursor.getString(5));
     }
 
-    void deleteNote(int id){
+    void deleteNews(int id){
         SQLiteDatabase db = this.getReadableDatabase();
         db.delete(DB_TABLE,COLUMN_ID+"=?",new String[]{String.valueOf(id)});
         db.close();

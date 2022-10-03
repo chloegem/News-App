@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 //TO ADD A NEWS ARTICLE - PART 4
-public class MainActivity3 extends AppCompatActivity {
+public class addNews extends AppCompatActivity {
 
     EditText news_title, news_author, news_publisher, news_location, news_details;
     Button button;
@@ -33,11 +33,11 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 NewsArticle newsArticle = new NewsArticle(news_title.getText().toString(), news_author.getText().toString(), news_publisher.getText().toString(),news_location.getText().toString(),news_details.getText().toString());
-                NewsDatabase db = new NewsDatabase(MainActivity3.this);
+                NewsDatabase db = new NewsDatabase(addNews.this);
                 db.addNews(newsArticle);
 
                 Toast.makeText(getApplicationContext(),"News Article Saved!",Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MainActivity3.this, MainActivity2.class); //create new activity
+                Intent i = new Intent(addNews.this, MainPage.class); //create new activity
                 startActivity(i);
             }
         });
