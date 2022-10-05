@@ -44,7 +44,7 @@ public class DetailActivity extends AppCompatActivity {
         dPublisher.setText(newsArticle.getPublisher());
         dLocation.setText(newsArticle.getLocation());
         dDetails.setText(newsArticle.getDetails());
-        Toast.makeText(getApplicationContext(), "ID"+newsArticle.getId(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Article Selected!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -64,7 +64,7 @@ public class DetailActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.delete) {
             NewsDatabase db = new NewsDatabase(this);
             Intent intent = getIntent();
-            id = intent.getIntExtra("Article Selected!", 0);
+            id = intent.getIntExtra("ID", 0);
             db.deleteNews(id);
             Toast.makeText(getApplicationContext(), "Article Deleted!", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(DetailActivity.this, MainPage.class);
